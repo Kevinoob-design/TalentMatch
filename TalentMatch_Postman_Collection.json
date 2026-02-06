@@ -1,0 +1,538 @@
+{
+	"info": {
+		"_postman_id": "talentmatch-api-collection",
+		"name": "TalentMatch API",
+		"description": "Colección completa de endpoints CRUD para la plataforma TalentMatch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Candidates",
+			"item": [
+				{
+					"name": "Crear Candidato",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Juan Pérez\",\n    \"email\": \"juan.perez@email.com\",\n    \"phone\": \"+52 555 123 4567\",\n    \"skills\": \"C#, .NET, SQL Server, Docker\",\n    \"yearsOfExperience\": 5,\n    \"status\": \"Active\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/candidates",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "candidates"]
+						},
+						"description": "Crea un nuevo candidato en el sistema"
+					}
+				},
+				{
+					"name": "Listar Candidatos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/candidates",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "candidates"]
+						},
+						"description": "Obtiene la lista de todos los candidatos"
+					}
+				},
+				{
+					"name": "Obtener Candidato por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/candidates/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "candidates", "1"]
+						},
+						"description": "Obtiene un candidato específico por su ID"
+					}
+				},
+				{
+					"name": "Actualizar Candidato",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Pérez García\",\n    \"email\": \"juan.perez@email.com\",\n    \"phone\": \"+52 555 123 4567\",\n    \"skills\": \"C#, .NET, SQL Server, Docker, Kubernetes\",\n    \"yearsOfExperience\": 6,\n    \"status\": \"Active\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/candidates/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "candidates", "1"]
+						},
+						"description": "Actualiza los datos de un candidato existente"
+					}
+				},
+				{
+					"name": "Eliminar Candidato",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/candidates/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "candidates", "1"]
+						},
+						"description": "Elimina un candidato del sistema"
+					}
+				}
+			]
+		},
+		{
+			"name": "Job Positions",
+			"item": [
+				{
+					"name": "Crear Vacante",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Senior .NET Developer\",\n    \"description\": \"Desarrollador senior para proyectos enterprise con enfoque en arquitectura de microservicios\",\n    \"requirements\": \"5+ años de experiencia en C#, Entity Framework, microservicios, Docker\",\n    \"minSalary\": 50000,\n    \"maxSalary\": 80000,\n    \"location\": \"CDMX / Remoto\",\n    \"status\": \"Open\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobpositions",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobpositions"]
+						},
+						"description": "Crea una nueva vacante de trabajo"
+					}
+				},
+				{
+					"name": "Listar Vacantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobpositions",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobpositions"]
+						},
+						"description": "Obtiene la lista de todas las vacantes"
+					}
+				},
+				{
+					"name": "Obtener Vacante por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobpositions/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobpositions", "1"]
+						},
+						"description": "Obtiene una vacante específica por su ID"
+					}
+				},
+				{
+					"name": "Actualizar Vacante",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"title\": \"Senior .NET Developer\",\n    \"description\": \"Desarrollador senior para proyectos enterprise - URGENTE\",\n    \"requirements\": \"5+ años de experiencia en C#, Entity Framework, microservicios, Docker, Kubernetes\",\n    \"minSalary\": 55000,\n    \"maxSalary\": 85000,\n    \"location\": \"CDMX / Remoto\",\n    \"status\": \"Open\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobpositions/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobpositions", "1"]
+						},
+						"description": "Actualiza los datos de una vacante existente"
+					}
+				},
+				{
+					"name": "Eliminar Vacante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobpositions/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobpositions", "1"]
+						},
+						"description": "Elimina una vacante del sistema"
+					}
+				}
+			]
+		},
+		{
+			"name": "Applications",
+			"item": [
+				{
+					"name": "Crear Aplicación",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"candidateId\": 1,\n    \"jobPositionId\": 1,\n    \"status\": \"Pending\",\n    \"coverLetter\": \"Estimado equipo de reclutamiento, me interesa mucho esta posición ya que cuento con amplia experiencia en las tecnologías requeridas.\",\n    \"notes\": \"Referido por empleado interno - María García\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications"]
+						},
+						"description": "Crea una nueva aplicación de un candidato a una vacante"
+					}
+				},
+				{
+					"name": "Listar Aplicaciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/applications",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications"]
+						},
+						"description": "Obtiene la lista de todas las aplicaciones"
+					}
+				},
+				{
+					"name": "Obtener Aplicación por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "1"]
+						},
+						"description": "Obtiene una aplicación específica por su ID"
+					}
+				},
+				{
+					"name": "Obtener Aplicaciones por Candidato",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/candidate/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "candidate", "1"]
+						},
+						"description": "Obtiene todas las aplicaciones de un candidato específico"
+					}
+				},
+				{
+					"name": "Obtener Aplicaciones por Vacante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/job/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "job", "1"]
+						},
+						"description": "Obtiene todas las aplicaciones para una vacante específica"
+					}
+				},
+				{
+					"name": "Actualizar Aplicación - Under Review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"candidateId\": 1,\n    \"jobPositionId\": 1,\n    \"status\": \"UnderReview\",\n    \"coverLetter\": \"Estimado equipo de reclutamiento, me interesa mucho esta posición ya que cuento con amplia experiencia en las tecnologías requeridas.\",\n    \"notes\": \"CV revisado, perfil interesante. Proceder con evaluación técnica.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "1"]
+						},
+						"description": "Actualiza el estado de la aplicación a 'En Revisión'"
+					}
+				},
+				{
+					"name": "Actualizar Aplicación - Interview",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"candidateId\": 1,\n    \"jobPositionId\": 1,\n    \"status\": \"Interview\",\n    \"coverLetter\": \"Estimado equipo de reclutamiento, me interesa mucho esta posición ya que cuento con amplia experiencia en las tecnologías requeridas.\",\n    \"notes\": \"Pasó evaluación técnica con 85%. Agendar entrevista con el Tech Lead para el viernes.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "1"]
+						},
+						"description": "Actualiza el estado de la aplicación a 'Entrevista'"
+					}
+				},
+				{
+					"name": "Actualizar Aplicación - Offered",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"candidateId\": 1,\n    \"jobPositionId\": 1,\n    \"status\": \"Offered\",\n    \"coverLetter\": \"Estimado equipo de reclutamiento, me interesa mucho esta posición ya que cuento con amplia experiencia en las tecnologías requeridas.\",\n    \"notes\": \"Entrevista exitosa. Oferta enviada: $70,000 MXN + beneficios. Esperando respuesta.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "1"]
+						},
+						"description": "Actualiza el estado de la aplicación a 'Oferta Enviada'"
+					}
+				},
+				{
+					"name": "Actualizar Aplicación - Accepted",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"candidateId\": 1,\n    \"jobPositionId\": 1,\n    \"status\": \"Accepted\",\n    \"coverLetter\": \"Estimado equipo de reclutamiento, me interesa mucho esta posición ya que cuento con amplia experiencia en las tecnologías requeridas.\",\n    \"notes\": \"Oferta aceptada. Fecha de inicio: 1 de marzo. Enviar documentación de onboarding.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "1"]
+						},
+						"description": "Actualiza el estado de la aplicación a 'Aceptada'"
+					}
+				},
+				{
+					"name": "Actualizar Aplicación - Rejected",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"candidateId\": 1,\n    \"jobPositionId\": 1,\n    \"status\": \"Rejected\",\n    \"coverLetter\": \"Estimado equipo de reclutamiento, me interesa mucho esta posición ya que cuento con amplia experiencia en las tecnologías requeridas.\",\n    \"notes\": \"No cumple con los requisitos técnicos mínimos. Enviar correo de agradecimiento.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "1"]
+						},
+						"description": "Actualiza el estado de la aplicación a 'Rechazada'"
+					}
+				},
+				{
+					"name": "Eliminar Aplicación",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "1"]
+						},
+						"description": "Elimina una aplicación del sistema"
+					}
+				}
+			]
+		},
+		{
+			"name": "Flujo Completo - Demo",
+			"item": [
+				{
+					"name": "1. Crear Candidato - Ana López",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ana López Martínez\",\n    \"email\": \"ana.lopez@email.com\",\n    \"phone\": \"+52 555 987 6543\",\n    \"skills\": \"Python, Django, PostgreSQL, AWS, Docker, Kubernetes\",\n    \"yearsOfExperience\": 7,\n    \"status\": \"Active\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/candidates",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "candidates"]
+						}
+					}
+				},
+				{
+					"name": "2. Crear Candidato - Carlos Ruiz",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Carlos Ruiz Hernández\",\n    \"email\": \"carlos.ruiz@email.com\",\n    \"phone\": \"+52 555 456 7890\",\n    \"skills\": \"Java, Spring Boot, Microservices, Azure, CI/CD\",\n    \"yearsOfExperience\": 4,\n    \"status\": \"Active\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/candidates",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "candidates"]
+						}
+					}
+				},
+				{
+					"name": "3. Crear Vacante - Backend Developer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Backend Developer Sr\",\n    \"description\": \"Buscamos desarrollador backend senior para liderar el desarrollo de APIs RESTful y microservicios en un ambiente ágil.\",\n    \"requirements\": \"5+ años de experiencia, conocimiento en Python o Java, experiencia con bases de datos SQL y NoSQL, Docker, CI/CD\",\n    \"minSalary\": 45000,\n    \"maxSalary\": 70000,\n    \"location\": \"Guadalajara / Híbrido\",\n    \"status\": \"Open\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobpositions",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobpositions"]
+						}
+					}
+				},
+				{
+					"name": "4. Crear Vacante - Frontend Developer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Frontend Developer React\",\n    \"description\": \"Desarrollador frontend para crear interfaces de usuario modernas y responsivas usando React y TypeScript.\",\n    \"requirements\": \"3+ años de experiencia, React, TypeScript, CSS/SASS, experiencia con testing\",\n    \"minSalary\": 35000,\n    \"maxSalary\": 55000,\n    \"location\": \"Remoto\",\n    \"status\": \"Open\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobpositions",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobpositions"]
+						}
+					}
+				},
+				{
+					"name": "5. Ana aplica a Backend Developer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"candidateId\": 1,\n    \"jobPositionId\": 1,\n    \"status\": \"Pending\",\n    \"coverLetter\": \"Con 7 años de experiencia en Python y Django, estoy muy interesada en esta oportunidad para contribuir al equipo de backend.\",\n    \"notes\": \"Aplicación recibida vía LinkedIn\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications"]
+						}
+					}
+				},
+				{
+					"name": "6. Carlos aplica a Backend Developer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"candidateId\": 2,\n    \"jobPositionId\": 1,\n    \"status\": \"Pending\",\n    \"coverLetter\": \"Mi experiencia en Java y Spring Boot me hace un candidato ideal para esta posición de backend.\",\n    \"notes\": \"Aplicación recibida vía portal web\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications"]
+						}
+					}
+				},
+				{
+					"name": "7. Ver aplicantes de Backend Developer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/job/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "applications", "job", "1"]
+						}
+					}
+				}
+			]
+		}
+	]
+}

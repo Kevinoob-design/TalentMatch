@@ -1,0 +1,6 @@
+@TalentMatch_HostAddress = http://localhost:5196
+
+GET {{TalentMatch_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
